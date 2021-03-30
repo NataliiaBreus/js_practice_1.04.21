@@ -46,7 +46,8 @@ console.log(user1);
 console.log(user2);
 
 */
-
+/*
+// Task 3 (функция для адреса)
 const PROTOCOL = 'http://';
 const PROTOCOL_SAFE = 'https://';
 const SERVER_IP = 'localhost';
@@ -57,4 +58,19 @@ function createQuery(absPath = '/home', isSafe = true){
     return `${isSafe ? PROTOCOL_SAFE : PROTOCOL}${SERVER_IP}${PORT}${absPath}`;
 }
 console.log(createQuery());
+*/
+
+// Task 4 (Создать таблицу умножения и разместить ее в объекте)
+
+function createMultiplicationTable (){
+    const table = {
+    }
+    for(let i=1; i<=10; i++){
+for(let j = 1; j<=10; j++){
+    table[`${i}*${j}`] = 1*j;
+}
+    }
+    return table;
+}
+
 

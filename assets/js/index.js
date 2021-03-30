@@ -1,87 +1,60 @@
-let numA = +prompt("Write a:");
-let numB = +prompt("write b:");
-const operator = prompt("Write operator");
 
-function sum(a, b) {
-  return a + b;
-}
-function sub(a, b) {
-  return a - b;
-}
-function mul(a, b) {
-  return a * b;
-}
-function div(a, b) {
-  return a / b;
-}
 
-const highOrderFunc = function (numA, numB, operationFunc) {
-  const result = operationFunc(numA, numB);
-  console.log(operationFunc);
-  return result;
-};
-switch (operator) {
-  case "+": {
-    const result = highOrderFunc(numA, numB, sum);
-    console.log(result);
-    break;
-  }
-  case "-": {
-    const result = highOrderFunc(numA, numB, sub);
-    console.log(result);
-    break;
-  }
-  case "*": {
-    const result = highOrderFunc(numA, numB, mul);
-    console.log(result);
-    break;
-  }
-  case "/": {
-    const result = highOrderFunc(numA, numB, div);
-    console.log(result);
-    break;
-  }
-  default: {
-    console.log("Wrong operator");
-    break;
-  }
+/*
+// Task 1 
+
+const user = {
+    firstName: 'Test',
+    lastName: 'Testovich',
+    age: 18,
+    isMale: true,
+    sayHello: function (){
+       alert(`${this.lastName} ${this.firstName}`)
+    },
+isAdult: function(){
+return this.age >= 18;
+},
 }
 
+user.sayHello();
+console.log(user.sayHello);
+console.log(user.isAdult());
+*/
+/*
 // Task 2
 
-let counter = 0;
-while (counter <= 10) {
-  
-  if (counter % 2 === 0) {
-    console.log(counter);
-  }
-  counter++;
+const User = function(firstName, lastName, age, isMale){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.isMale = isMale;
+    this.sayHello = function (){
+        alert(`${this.lastName} ${this.firstName}`)
+     };
+     this.isAdult = function(){
+        return this.age >= 18;
+        }
 }
-console.log("End of loop");
+let user1 = new User ('Martin', 'Luter', 25, true);
+let user2 = new User ('Piter', 'Pen', 35, true);
 
-// Task 3 ввод пароля с ограничением попыток до пяти
+console.log(user1.sayHello());
+console.log(user2.sayHello());
+console.log(user1.isAdult());
 
-const GOOD_PASSWORD = "qwerty123";
-let triesCounter = 0;
-while(triesCounter<5){
-    const userPass = prompt ("write your password");
-    if(userPass === GOOD_PASSWORD){
-        console.log ("Success");
-        break;      
-} 
-console.log("you wrote a wrong password!");
-        triesCounter++; 
+console.log(user1);
+console.log(user2);
+
+*/
+
+const PROTOCOL = 'http://';
+const PROTOCOL_SAFE = 'https://';
+const SERVER_IP = 'localhost';
+const PORT = 3000;
+
+function createQuery(absPath = '/home', isSafe = true){
+
+    return `${isSafe ? PROTOCOL_SAFE : PROTOCOL}${SERVER_IP}${PORT}${absPath}`;
 }
-
-// Task 4 найти факториал числа
-
-let factCounter = 1;
-const factNumber = +prompt ("Write a number");
-let factorial = 1;
-while(factCounter < factNumber){
-    factCounter ++;
-    factorial *= factCounter;
-}
-console.log(factorial);
- 
+console.log(createQuery());
 

@@ -33,10 +33,12 @@ function Ladder(){
 Ladder. prototype = new LadderPrototype();
 function LadderPrototype(){
     this.up = function up (){
-        return ++this.value;
+        this.value++;
+        return this;
     }
     this.down = function down (){
-        return --this.value;
+        this.value--;
+        return this;
     }
     this.showStep = function showStep(){
         return this.value;

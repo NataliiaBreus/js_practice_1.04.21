@@ -1,76 +1,53 @@
-
-
+'use strict';
 /*
-// Task 1 
+// Task 1
 
-const user = {
-    firstName: 'Test',
-    lastName: 'Testovich',
-    age: 18,
-    isMale: true,
-    sayHello: function (){
-       alert(`${this.lastName} ${this.firstName}`)
-    },
-isAdult: function(){
-return this.age >= 18;
-},
-}
-
-user.sayHello();
-console.log(user.sayHello);
-console.log(user.isAdult());
-*/
-/*
-// Task 2
-
-const User = function(firstName, lastName, age, isMale){
+function Student (firstName, lastName, age, isMale){
     this.firstName = firstName;
     this.lastName = lastName;
     this.age = age;
     this.isMale = isMale;
-    this.sayHello = function (){
-        alert(`${this.lastName} ${this.firstName}`)
-     };
-     this.isAdult = function(){
-        return this.age >= 18;
-        }
 }
-let user1 = new User ('Martin', 'Luter', 25, true);
-let user2 = new User ('Piter', 'Pen', 35, true);
 
-console.log(user1.sayHello());
-console.log(user2.sayHello());
-console.log(user1.isAdult());
 
-console.log(user1);
-console.log(user2);
+Student.prototype = new StudentPrototype();
 
-*/
-/*
-// Task 3 (функция для адреса)
-const PROTOCOL = 'http://';
-const PROTOCOL_SAFE = 'https://';
-const SERVER_IP = 'localhost';
-const PORT = 3000;
-
-function createQuery(absPath = '/home', isSafe = true){
-
-    return `${isSafe ? PROTOCOL_SAFE : PROTOCOL}${SERVER_IP}${PORT}${absPath}`;
+function StudentPrototype(){
+    
+    this.toString = function toString(){
+        return `${this.firstName} ${this.lastName}. I'm ${this.age} years old`;
+    }
+    this.say = function say(message) {
+        return `Student ${this.firstName} ${this.lastName} says: \n ${message}`;
+    }
 }
-console.log(createQuery());
+const student1 = new Student('Ivan', 'Ivanov', 30, true);
+console.log(student1.say('Hello everybody!'));
 */
 
-// Task 4 (Создать таблицу умножения и разместить ее в объекте)
+// Task 2
 
-function createMultiplicationTable (){
-    const table = {
-    }
-    for(let i=1; i<=10; i++){
-for(let j = 1; j<=10; j++){
-    table[`${i}*${j}`] = 1*j;
+function Ladder(){
+    this.value = 0;
 }
+Ladder. prototype = new LadderPrototype();
+function LadderPrototype(){
+    this.up = function up (){
+        return ++this.value;
     }
-    return table;
+    this.down = function down (){
+        return --this.value;
+    }
+    this.showStep = function showStep(){
+        return this.value;
+    }
 }
+const ladder1 = new Ladder();
+
+console.log(ladder1.up());
+console.log(ladder1.down());
+
+
+
 
 
